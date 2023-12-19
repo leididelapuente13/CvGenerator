@@ -3,6 +3,8 @@ import FormInfo from "./components/FormInfo.jsx";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 import { Cv } from "./components/Cv";
+import { SkillForm } from "./components/SkillForm.jsx";
+import { LanguageForm } from "./components/LanguageForm.jsx";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <FormInfo />
         <EducationForm />
         <ExperienceForm />
+        <SkillForm/>
+        <LanguageForm/>
       </div>
       <div className="cv-wrapper">
         <Cv/>

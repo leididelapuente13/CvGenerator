@@ -16,8 +16,8 @@ EducationCard.propTypes = {
     education: PropTypes.shape({
         school: PropTypes.string.isRequired,
         degree: PropTypes.string.isRequired,
-        startDate: PropTypes.isRequired,
-        endDate: PropTypes.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string,
         location: PropTypes.string.isRequired,
     }).isRequired,
 }

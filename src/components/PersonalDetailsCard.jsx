@@ -10,3 +10,12 @@ export const PersonalDetailsCard = ({personalInfo}) => {
       </>
     );
 };
+
+PersonalDetailsCard.propTypes = {
+  personalInfo: PropTypes.shape({
+    fullName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phoneNumber: PropTypes.string.isRequired,
+    address: PropTypes.string,
+  }).isRequired
+}

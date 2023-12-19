@@ -17,8 +17,8 @@ ExperienceCard.propTypes = {
     experience: PropTypes.shape({
         companyName: PropTypes.string.isRequired,
         position: PropTypes.string.isRequired,
-        startDate: PropTypes.isRequired,
-        endDate: PropTypes.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string,
         location: PropTypes.string,
         description: PropTypes.string.isRequired
     }).isRequired,
