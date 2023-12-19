@@ -13,7 +13,7 @@ function App() {
         <ExperienceForm />
       </div>
       <div className="cv-wrapper">
-        <Cv />
+        <Cv/>
       </div>
     </main>
   );

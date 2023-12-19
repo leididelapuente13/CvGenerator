@@ -18,7 +18,7 @@ main{
     display: flex;
     flex-direction: column;
     width: 45%;
-    max-width: 450px;
+    max-width: 400px;
 }
 
 form{
@@ -100,5 +100,42 @@ input:focus, textarea{
 }
 
 .cv-wrapper{
-    width: 40%;
+    width: 45%;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.cv{
+    border: solid 2px darkmagenta;
+}
+
+header{
+    background-color: rgb(94, 2, 94);
+    color: #fff;
+    width: 100%;
+    padding: 0.7rem;
+    text-align: center;
+}
+
+header > *{
+    margin-bottom: 0.9rem;
+}
+
+span{
+    margin-right: 0.9rem;
+}
+
+h2{
+    text-align: center;
+}
+
+section{
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title{
+    background-color: #c092c0;
+    padding: 0.4rem;
+    margin-bottom: 1rem;
 }

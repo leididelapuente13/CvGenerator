@@ -40,9 +40,4 @@ const ExperienceForm = () => {
     </div>
   );
 };
-
-export const ExperienceCard = () => {
-  return <div>ExperienceForm</div>;
-};
-
 export default ExperienceForm;
