@@ -1,16 +1,16 @@
 import "./styles/app.css";
-import FormInfo from "./components/FormInfo.jsx";
-import EducationForm from "./components/EducationForm";
-import ExperienceForm from "./components/ExperienceForm";
+import EducationForm from "./components/forms/EducationForm";
+import ExperienceForm from "./components/forms/ExperienceForm";
 import { Cv } from "./components/Cv";
-import { SkillForm } from "./components/SkillForm.jsx";
-import { LanguageForm } from "./components/LanguageForm.jsx";
+import { SkillForm } from "./components/forms/SkillForm.jsx";
+import { LanguageForm } from "./components/forms/LanguageForm.jsx";
+import PersonalInfoForm from "./components/forms/PersonalInfoForm.jsx";
 
 function App() {
   return (
     <main>
       <div className="section-wrapper">
-        <FormInfo />
+        <PersonalInfoForm />
         <EducationForm />
         <ExperienceForm />
         <SkillForm/>

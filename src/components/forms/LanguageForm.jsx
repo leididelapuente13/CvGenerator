@@ -3,7 +3,7 @@ export const LanguageForm = () => {
     <form>
         <h3>Language</h3>
         <label>Language</label>
-        <input type="text" name=""/>
+        <input type="text" name="" placeholder="English"/>
         <label>Fluency</label>
         <select name="">
             <option value="A1">A1</option>

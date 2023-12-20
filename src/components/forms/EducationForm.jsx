@@ -17,12 +17,7 @@ const EducationForm = () => {
 
         <label htmlFor="location">Location</label>
         <input type="text" id="location" placeholder="Enter location" />
-        <div className="buttons-wrapper">
           <input type="submit" value="Save" className="btn-submit" />
-          <button type="button" className="btn-cancel">
-            Cancel
-          </button>
-        </div>
       </form>
     </div>
   );

@@ -30,12 +30,8 @@ const ExperienceForm = () => {
           rows="10"
           placeholder="Enter job description"
         ></textarea>
-        <div className="buttons-wrapper">
-          <input type="submit" value="Save" className="btn-submit" />
-          <button type="button" className="btn-cancel">
-            Cancel
-          </button>
-        </div>
+
+        <input type="submit" value="Save" className="btn-submit" />
       </form>
     </div>
   );

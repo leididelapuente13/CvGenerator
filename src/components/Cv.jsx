@@ -1,9 +1,9 @@
-import { EducationCard } from "./EducationCard";
-import { ExperienceCard } from "./ExperienceCard";
-import { LanguageCard } from "./LanguageCard";
-import { PersonalDetailsCard } from "./PersonalDetailsCard";
-import { SkillCard } from "./SkillCard";
-
+import { EducationCard } from "./cards/EducationCard";
+import { ExperienceCard } from "./cards/ExperienceCard";
+import { LanguageCard } from "./cards/LanguageCard";
+import { PersonalDetailsCard } from "./cards/PersonalDetailsCard";
+import { SkillCard } from "./cards/SkillCard";
+import { SkillContext } from "../context/CVContext";
 export const Cv = () => {
   const experience = {
     companyName: "Tech Dev", 
@@ -44,7 +44,9 @@ export const Cv = () => {
       </section>
       <section>
         <h3 className="section-title">Skills</h3>
-        <SkillCard skill="React" />
+        <SkillContext.Provider value={{}}>
+          <SkillCard skill="React" />
+        </SkillContext.Provider>
       </section>
       <section>
         <h3 className="section-title">Languages</h3>
