@@ -1,9 +1,10 @@
+import { useCVContext } from "../context/CVContext";
 import { EducationCard } from "./cards/EducationCard";
 import { ExperienceCard } from "./cards/ExperienceCard";
 import { LanguageCard } from "./cards/LanguageCard";
 import { PersonalDetailsCard } from "./cards/PersonalDetailsCard";
 import { SkillCard } from "./cards/SkillCard";
-import { SkillContext } from "../context/CVContext";
+
 export const Cv = () => {
   const experience = {
     companyName: "Tech Dev", 
@@ -29,6 +30,10 @@ export const Cv = () => {
     address: "Colombia",
   }
 
+  const {skills} = useCVContext();
+
+  console.log(skills);
+
   return (
     <div className="cv">
       <header>
@@ -44,9 +49,9 @@ export const Cv = () => {
       </section>
       <section>
         <h3 className="section-title">Skills</h3>
-        <SkillContext.Provider value={{}}>
-          <SkillCard skill="React" />
-        </SkillContext.Provider>
+        {skills.map((skill)=>(
+          <SkillCard skill={skill} key={skill.id}/>
+        ))}
       </section>
       <section>
         <h3 className="section-title">Languages</h3>

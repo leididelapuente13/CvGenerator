@@ -5,20 +5,22 @@ import { Cv } from "./components/Cv";
 import { SkillForm } from "./components/forms/SkillForm.jsx";
 import { LanguageForm } from "./components/forms/LanguageForm.jsx";
 import PersonalInfoForm from "./components/forms/PersonalInfoForm.jsx";
-
+import { CVProvider } from "./context/CVContext.jsx";
 function App() {
   return (
     <main>
-      <div className="section-wrapper">
-        <PersonalInfoForm />
-        <EducationForm />
-        <ExperienceForm />
-        <SkillForm/>
-        <LanguageForm/>
-      </div>
-      <div className="cv-wrapper">
-        <Cv/>
-      </div>
+      <CVProvider>
+        <div className="section-wrapper">
+          <PersonalInfoForm />
+          <EducationForm />
+          <ExperienceForm />
+          <SkillForm />
+          <LanguageForm />
+        </div>
+        <div className="cv-wrapper">
+          <Cv />
+        </div>
+      </CVProvider>
     </main>
   );
 }
