@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCVContext } from "../../context/CVContext";
 
 const PersonalInfoForm = () => {
   const [info, setInfo] = useState({
@@ -8,16 +9,24 @@ const PersonalInfoForm = () => {
     address: "",
   });
 
+  const {setPersonalInfo} = useCVContext();
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
   };
 
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    setPersonalInfo(info);
+    setInfo({fullName: "", email: "", phoneNumber: "", address: ""})
+  }
+  
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Personal Details</h3>
-
         <label htmlFor="name">Full Name</label>
         <input
           type="text"

@@ -23,14 +23,8 @@ export const Cv = () => {
     location: "Colombia"
   }
 
-  const personalInfo = {
-    fullName: "Leidi De La Puente",
-    email: "leididelapuente3@gmail.com",
-    phoneNumber: "3218381415",
-    address: "Colombia",
-  }
 
-  const {skills} = useCVContext();
+  const {skills, personalInfo} = useCVContext();
 
   console.log(skills);
 
