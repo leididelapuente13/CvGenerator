@@ -25,9 +25,7 @@ export const Cv = () => {
 
 
   const {skills, personalInfo, languages} = useCVContext();
-
-  console.log(skills);
-
+  
   return (
     <div className="cv">
       <header>

@@ -14,8 +14,7 @@ export const LanguageForm = () => {
   const handleSubmit = (e) =>{
     e.preventDefault();
     setLanguages([...languages, {...language, id: randomId()}]);
-    setLanguage({...language, name: ""})
-    console.log(languages, language)
+    setLanguage({...language, name: ""});
   }
 
   return (

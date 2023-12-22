@@ -13,9 +13,9 @@ export const PersonalDetailsCard = ({personalInfo}) => {
 
 PersonalDetailsCard.propTypes = {
   personalInfo: PropTypes.shape({
-    fullName: PropTypes.string.isRequired9,
-    email: PropTypes.string.isRequired,
-    phoneNumber: PropTypes.string.isRequired,
+    fullName: PropTypes.string,
+    email: PropTypes.string,
+    phoneNumber: PropTypes.string,
     address: PropTypes.string,
-  }).isRequired
+  }).isRequired,
 }
