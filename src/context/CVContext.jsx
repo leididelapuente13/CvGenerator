@@ -11,10 +11,10 @@ export const CVProvider = ({children}) =>{
     const [education, setEducation] = useState([]);
     const [experience, setExperience] = useState([]);
     const [skills, setSkills] = useState([]);
-    const [language, setLanguage] = useState([]);
+    const [languages, setLanguages] = useState([]);
 
     return(
-        <CVContext.Provider value={{personalInfo, setPersonalInfo, education, setEducation, experience, setExperience, skills, setSkills, language, setLanguage}}>
+        <CVContext.Provider value={{personalInfo, setPersonalInfo, education, setEducation, experience, setExperience, skills, setSkills, languages, setLanguages}}>
             {children}
         </CVContext.Provider>
     )

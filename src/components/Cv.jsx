@@ -24,7 +24,7 @@ export const Cv = () => {
   }
 
 
-  const {skills, personalInfo} = useCVContext();
+  const {skills, personalInfo, languages} = useCVContext();
 
   console.log(skills);
 
@@ -49,7 +49,10 @@ export const Cv = () => {
       </section>
       <section>
         <h3 className="section-title">Languages</h3>
-        <LanguageCard language={{"name": "English", "fluency": "C2"}} />
+        {
+          languages.map((language)=>(
+            <LanguageCard language={language} key={language.id}/>
+          ))}
       </section>
     </div>
   );

@@ -26,7 +26,7 @@ const PersonalInfoForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h3>Personal Details</h3>
+        <h3>Personal Details</h3> 
         <label htmlFor="name">Full Name</label>
         <input
           type="text"
