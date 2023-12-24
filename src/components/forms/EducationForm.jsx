@@ -8,7 +8,7 @@ const EducationForm = () => {
     school: "",
     degree: "",
     startDate: "",
-    endDate: "On going", 
+    endDate: "", 
     location: "",
   }); 
 
