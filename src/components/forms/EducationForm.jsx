@@ -1,31 +1,52 @@
 import { useState } from "react";
+import { useCVContext } from "../../context/CVContext";
+import {v4 as randomId} from 'uuid';
 
 const EducationForm = () => {
   const [education, setEducation] = useState({
-    schoolName: "",
+    id: "",
+    school: "",
+    degree: "",
+    startDate: "",
+    endDate: "On going", 
+    location: "",
+  }); 
+
+  const {setEducations, educations} = useCVContext();
+
+  const handleOnChange = (e) =>{
+    const {name, value} = e.target;
+    setEducation((prevProperty)=>({...prevProperty, [name]: value}));
+  }
+
+  const handleAddEducation = (e) =>{
+    e.preventDefault();
+    setEducations([...educations, {...education, id: randomId()}]);
+    setEducation({school: "",
     degree: "",
     startDate: "",
     endDate: "", 
-    location: "",
-  })
+    location: ""});
+    console.log(educations)
+  }
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleAddEducation}>
         <h3>Education</h3>
         <label htmlFor="school">School</label>
-        <input type="text" id="school" placeholder="Enter school name" name="schoolName" value={education.schoolName}/>
+        <input type="text" id="school" placeholder="Enter school name" name="school" value={education.school} onChange={handleOnChange}/>
 
         <label htmlFor="degree">Degree</label>
-        <input type="text" id="degree" placeholder="Enter degree title" name="degree" value={education.degree}/>
+        <input type="text" id="degree" placeholder="Enter degree title" name="degree" value={education.degree} onChange={handleOnChange}/>
 
         <label htmlFor="start-date">Start Date</label>
-        <input type="date" id="start-date" placeholder="Select start date" name="startDate" value={education.startDate}/>
+        <input type="date" id="start-date" placeholder="Select start date" name="startDate" value={education.startDate} onChange={handleOnChange}/>
 
         <label htmlFor="end-date">End Date</label>
-        <input type="date" id="end-date" placeholder="Select end date" name="endDate" value={education.endDate}/>
+        <input type="date" id="end-date" placeholder="Select end date" name="endDate" value={education.endDate} onChange={handleOnChange}/>
 
         <label htmlFor="location">Location</label>
-        <input type="text" id="location" placeholder="Enter location" name="location" value={education.location}/>
+        <input type="text" id="location" placeholder="Enter location" name="location" value={education.location} onChange={handleOnChange}/>
         <input type="submit" value="Save" className="btn-submit" />
       </form>
     </div>

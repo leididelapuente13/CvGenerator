@@ -15,16 +15,7 @@ export const Cv = () => {
     description: "dnndmd dgdbbdjdj hhdndhjdjdm jdjmdmdj"
   }
 
-  const education = {
-    school: "Nothing", 
-    degree: "System engineer",
-    startDate: "12-05-2021", 
-    endDate: "12-05-2025", 
-    location: "Colombia"
-  }
-
-
-  const {skills, personalInfo, languages} = useCVContext();
+  const {skills, personalInfo, languages, educations} = useCVContext();
   
   return (
     <div className="cv">
@@ -33,7 +24,7 @@ export const Cv = () => {
       </header>
       <section>
         <h3 className="section-title">Education</h3>
-        <EducationCard education={education}/>
+        {educations.map((education)=>(<EducationCard education={education} key={education.id}/>))}
       </section>
       <section>
         <h3 className="section-title">Professional Experience</h3>
