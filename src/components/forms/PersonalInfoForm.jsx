@@ -9,7 +9,7 @@ const PersonalInfoForm = () => {
     address: "",
   });
 
-  const {setPersonalInfo} = useCVContext();
+  const {setPersonalInfo, personalInfo} = useCVContext();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -20,6 +20,12 @@ const PersonalInfoForm = () => {
     e.preventDefault();
     setPersonalInfo(info);
     setInfo({fullName: "", email: "", phoneNumber: "", address: ""})
+  }
+
+  const handleEdit = (e)=>{
+    e.preventDefault();
+    setInfo({fullName: personalInfo.fullName, email: personalInfo.email, phoneNumber: personalInfo.phoneNumber, address: personalInfo.address});
+    setPersonalInfo({...personalInfo, info});
   }
   
 
@@ -69,7 +75,7 @@ const PersonalInfoForm = () => {
 
         <div className="buttons-wrapper">
           <input type="submit" value="Save" className="btn-submit" />
-          <button type="button" className="btn-edit">
+          <button type="button" className="btn-edit" onClick={handleEdit}>
             Edit
           </button>
         </div>
