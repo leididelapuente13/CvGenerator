@@ -5,8 +5,9 @@ import { Cv } from "./components/Cv";
 import { SkillForm } from "./components/forms/SkillForm.jsx";
 import { LanguageForm } from "./components/forms/LanguageForm.jsx";
 import PersonalInfoForm from "./components/forms/PersonalInfoForm.jsx";
-import { CVProvider } from "./context/CVContext.jsx";
+import { CVProvider} from "./context/CVContext.jsx";
 import { useState } from "react";
+
 function App() {
   const [visible, setVisible] = useState(false);
   return (
@@ -24,7 +25,7 @@ function App() {
           >
             +
           </button>
-          <section className={visible ? "visible" : "invisible"} >
+          <section className={visible ? "visible" : "invisible"}>
             <SkillForm />
             <LanguageForm />
           </section>

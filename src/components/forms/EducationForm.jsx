@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCVContext } from "../../context/CVContext";
 import {v4 as randomId} from 'uuid';
+import { EducationConfig } from "../configuration/EducationConfig";
 
 const EducationForm = () => {
   const [education, setEducation] = useState({
@@ -47,7 +48,11 @@ const EducationForm = () => {
 
         <label htmlFor="location">Location</label>
         <input type="text" id="location" placeholder="Enter location" name="location" value={education.location} onChange={handleOnChange}/>
+        <div className="buttons-wrapper">
         <input type="submit" value="Save" className="btn-submit" />
+        <button type="button" className="btn-edit">Edit</button>
+        </div>
+        <EducationConfig/>
       </form>
     </div>
   );
