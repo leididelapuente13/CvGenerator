@@ -10,14 +10,14 @@ export const LanguageForm = () => {
     setLanguage((prevInfo) => ({ ...prevInfo, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleAddLanguage = (e) => {
     e.preventDefault();
     setLanguages([...languages, { ...language, id: randomId() }]);
     setLanguage({ ...language, name: "" });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleAddLanguage}>
       <h3>Language</h3>
       <label>Language</label>
       <input
@@ -43,14 +43,14 @@ export const LanguageForm = () => {
           className="btn-submit"
           onChange={handleOnChange}
         />
-        <button type="button" className="btnEdit">
+        <button type="button" className="btn-edit">
           Edit
         </button>
       </div>
 
       {languages.map((language)=>(
         <div key={language.id}>
-          <p>{language.name + language.fluency}</p>
+          <p>{language.name + " " + language.fluency}</p>
           <button type="button">X</button>
           <button type="button">Edit</button>
         </div>

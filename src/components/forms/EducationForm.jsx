@@ -105,7 +105,7 @@ const EducationForm = () => {
         <div className="div-config">
           {educations.map((education) => (
             <div key={education.id}>
-              <p>{education.school + " " + education.degree}</p>
+              <p>{education.school + " - " + education.degree}</p>
               <button type="button" onClick={() => {
                   handleDeleteEducation(education.id);
                 }}

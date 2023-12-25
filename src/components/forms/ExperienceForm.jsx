@@ -115,7 +115,8 @@ const ExperienceForm = () => {
         <div>
           {experiences.map((experience) => (
             <div key={experience.id} className="div-config">
-              <p>{experience.position + " " + experience.company}</p>
+              <p>{experience.position}</p>
+              <p>{experience.company}</p>
               <button
                 type="button"
                 onClick={() => {
@@ -128,6 +129,7 @@ const ExperienceForm = () => {
             </div>
           ))}
         </div>
+
       </form>
     </div>
   );
