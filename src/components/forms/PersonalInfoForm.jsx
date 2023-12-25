@@ -9,30 +9,41 @@ const PersonalInfoForm = () => {
     address: "",
   });
 
-  const {setPersonalInfo, personalInfo} = useCVContext();
+  const { setPersonalInfo, personalInfo } = useCVContext();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     setPersonalInfo(info);
-    setInfo({fullName: "", email: "", phoneNumber: "", address: ""})
-  }
+    setInfo({ fullName: "", email: "", phoneNumber: "", address: "" });
+  };
 
-  const handleEdit = (e)=>{
+  const handleEdit = (e) => {
     e.preventDefault();
-    setInfo({fullName: personalInfo.fullName, email: personalInfo.email, phoneNumber: personalInfo.phoneNumber, address: personalInfo.address});
-    setPersonalInfo({...personalInfo, info});
-  }
-  
+
+    setInfo({
+      fullName: personalInfo.fullName,
+      email: personalInfo.email,
+      phoneNumber: personalInfo.phoneNumber,
+      address: personalInfo.address,
+    });
+    setPersonalInfo({
+      ...personalInfo,
+      fullName: info.fullName,
+      email: info.email,
+      phoneNumber: info.phoneNumber,
+      address: info.address,
+    }); 
+  };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h3>Personal Details</h3> 
+        <h3>Personal Details</h3>
         <label htmlFor="name">Full Name</label>
         <input
           type="text"

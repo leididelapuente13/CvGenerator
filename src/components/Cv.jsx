@@ -8,6 +8,7 @@ import { SkillCard } from "./cards/SkillCard";
 export const Cv = () => {
 
   const {skills, personalInfo, languages, educations, experiences} = useCVContext();  
+  
   return (
     <div className="cv">
       <header>
