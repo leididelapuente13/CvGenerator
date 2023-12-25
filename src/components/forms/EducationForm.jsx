@@ -30,6 +30,16 @@ const EducationForm = () => {
     location: ""});
     console.log(educations)
   }
+
+  const handleDeleteEducation = (id) => {
+    const toRemove = educations.find((education) => education.id === id);
+    setEducations(educations.filter((education) => education != toRemove));
+  };
+
+  const handleEditEducation = (id) => {
+    console.log(id);
+  };
+  
   return (
     <div>
       <form onSubmit={handleAddEducation}>
@@ -53,6 +63,29 @@ const EducationForm = () => {
         <button type="button" className="btn-edit">Edit</button>
         </div>
         <EducationConfig/>
+        <div className="div-config">
+      {educations.map((education) => (
+        <div key={education.id}>
+          <p>{education.degree}</p>
+          <button
+            type="button"
+            onClick={() => {
+              handleDeleteEducation(education.id);
+            }}
+          >
+            X
+          </button>{" "}
+          <button
+            type="button"
+            onClick={() => {
+              handleEditEducation(education.id);
+            }}
+          >
+            Edit
+          </button>
+        </div>
+      ))}
+    </div>
       </form>
     </div>
   );
