@@ -6,7 +6,9 @@ import { SkillForm } from "./components/forms/SkillForm.jsx";
 import { LanguageForm } from "./components/forms/LanguageForm.jsx";
 import PersonalInfoForm from "./components/forms/PersonalInfoForm.jsx";
 import { CVProvider } from "./context/CVContext.jsx";
+import { useState } from "react";
 function App() {
+  const [visible, setVisible] = useState(false);
   return (
     <main>
       <CVProvider>
@@ -14,8 +16,18 @@ function App() {
           <PersonalInfoForm />
           <EducationForm />
           <ExperienceForm />
-          <SkillForm />
-          <LanguageForm />
+          <button
+            type="button"
+            onClick={() => {
+              visible ? setVisible(false) : setVisible(true);
+            }}
+          >
+            +
+          </button>
+          <section className={visible ? "visible" : "invisible"} >
+            <SkillForm />
+            <LanguageForm />
+          </section>
         </div>
         <div className="cv-wrapper">
           <Cv />

@@ -153,3 +153,13 @@ section{
     padding: 0.4rem;
     margin-bottom: 1rem;
 }
+
+.visible{
+    transition: opacity 0.4s ease-in;
+    opacity: 1;
+}
+
+.invisible{
+    transition: opacity 0.4s ease-out;
+    opacity: 0;
+}
