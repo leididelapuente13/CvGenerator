@@ -1,21 +1,20 @@
 import { useState } from "react";
-import {useCVContext } from "../../context/CVContext";
-import {v4 as randomId} from 'uuid';
+import { useCVContext } from "../../context/CVContext";
+import { v4 as randomId } from "uuid";
 
 export const LanguageForm = () => {
-
-  const [language, setLanguage] = useState({})
- const {setLanguages, languages} = useCVContext();
+  const [language, setLanguage] = useState({});
+  const { setLanguages, languages } = useCVContext();
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setLanguage((prevInfo) => ({ ...prevInfo, [name]: value }));
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLanguages([...languages, {...language, id: randomId()}]);
-    setLanguage({...language, name: ""});
-  }
+    setLanguages([...languages, { ...language, id: randomId() }]);
+    setLanguage({ ...language, name: "" });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -37,12 +36,25 @@ export const LanguageForm = () => {
         <option value="C1">C1</option>
         <option value="C2">C2</option>
       </select>
-      <input
-        type="submit"
-        value="Add"
-        className="btn-submit"
-        onChange={handleOnChange}
-      />
+      <div className="buttons-wrapper">
+        <input
+          type="submit"
+          value="Add"
+          className="btn-submit"
+          onChange={handleOnChange}
+        />
+        <button type="button" className="btnEdit">
+          Edit
+        </button>
+      </div>
+
+      {languages.map((language)=>(
+        <div key={language.id}>
+          <p>{language.name + language.fluency}</p>
+          <button type="button">X</button>
+          <button type="button">Edit</button>
+        </div>
+      ))}
     </form>
   );
 };
