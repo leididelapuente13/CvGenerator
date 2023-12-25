@@ -6,16 +6,8 @@ import { PersonalDetailsCard } from "./cards/PersonalDetailsCard";
 import { SkillCard } from "./cards/SkillCard";
 
 export const Cv = () => {
-  const experience = {
-    companyName: "Tech Dev", 
-    position: "Front-end Developer", 
-    startDate: "1-1-2024", 
-    endDate: "10-11-2026", 
-    location: "Colombia", 
-    description: "dnndmd dgdbbdjdj hhdndhjdjdm jdjmdmdj"
-  }
 
-  const {skills, personalInfo, languages, educations} = useCVContext();
+  const {skills, personalInfo, languages, educations, experiences} = useCVContext();
   
   return (
     <div className="cv">
@@ -28,7 +20,7 @@ export const Cv = () => {
       </section>
       <section>
         <h3 className="section-title">Professional Experience</h3>
-        <ExperienceCard experience={experience}/>
+        {experiences.map((experience)=>(<ExperienceCard experience={experience} key={experience.id}/>))}
       </section>
       <section>
         <h3 className="section-title">Skills</h3>
