@@ -7,6 +7,7 @@ import { LanguageForm } from "./components/forms/LanguageForm.jsx";
 import PersonalInfoForm from "./components/forms/PersonalInfoForm.jsx";
 import { CVProvider} from "./context/CVContext.jsx";
 import { useState } from "react";
+import { IoIosMore } from "react-icons/io";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -23,7 +24,7 @@ function App() {
               visible ? setVisible(false) : setVisible(true);
             }}
           >
-            +
+            <IoIosMore />
           </button>
           <section className={visible ? "visible" : "invisible"}>
             <SkillForm />

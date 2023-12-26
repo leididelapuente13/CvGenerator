@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCVContext } from "../../context/CVContext";
 import { v4 as randomId } from "uuid";
+import { IoIosTrash, IoMdCreate } from "react-icons/io";
 
 const EducationForm = () => {
   const [education, setEducation] = useState({
@@ -110,7 +111,7 @@ const EducationForm = () => {
                   handleDeleteEducation(education.id);
                 }}
               >
-                X
+                <IoIosTrash />
               </button>
               <button
                 type="button"
@@ -118,7 +119,7 @@ const EducationForm = () => {
                   handleEditEducation(education.id);
                 }}
               >
-                Edit
+                <IoMdCreate />
               </button>
             </div>
           ))}

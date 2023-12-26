@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCVContext } from "../../context/CVContext";
 import { v4 as randomId } from "uuid";
+import { IoIosTrash, IoMdCreate } from "react-icons/io";
 
 export const SkillForm = () => {
   const [newSkill, setNewSkill] = useState({ id: "", skill: "" });
@@ -43,10 +44,10 @@ export const SkillForm = () => {
       </div>
       <div>
         {skills.map((skill)=>(
-          <div key={skill.id}>
+          <div key={skill.id} className="div-config">
             <p>{skill.skill}</p>
-            <button type="button" onClick={()=>handleDeleteSkill(skill.id)}>X</button>
-            <button type="button" onClick={()=>handleEditSkill(skill.id)}>Edit</button>
+            <button type="button" onClick={()=>handleDeleteSkill(skill.id)}><IoIosTrash /></button>
+            <button type="button" onClick={()=>handleEditSkill(skill.id)}><IoMdCreate /></button>
           </div>
         ))}
       </div>

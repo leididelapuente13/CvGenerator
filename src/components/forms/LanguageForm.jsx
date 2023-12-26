@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCVContext } from "../../context/CVContext";
 import { v4 as randomId } from "uuid";
+import { IoIosTrash, IoMdCreate } from "react-icons/io";
 
 export const LanguageForm = () => {
   const [language, setLanguage] = useState({});
@@ -63,10 +64,10 @@ export const LanguageForm = () => {
       </div>
 
       {languages.map((language)=>(
-        <div key={language.id}>
+        <div key={language.id} className="div-config">
           <p>{language.name + " " + language.fluency}</p>
-          <button type="button" onClick={()=>handleDeleteLanguage(language.id)}>X</button>
-          <button type="button" onClick={()=>displayLanguage(language.id)}>Edit</button>
+          <button type="button" onClick={()=>handleDeleteLanguage(language.id)}><IoIosTrash /></button>
+          <button type="button" onClick={()=>displayLanguage(language.id)}><IoMdCreate /></button>
         </div>
       ))}
     </form>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCVContext } from "../../context/CVContext";
 import { v4 as randomId } from "uuid";
+import { IoIosTrash, IoMdCreate } from "react-icons/io";
 
 const ExperienceForm = () => {
   const [experience, setExperience] = useState({
@@ -122,15 +123,10 @@ const ExperienceForm = () => {
             <div key={experience.id} className="div-config">
               <p>{experience.position}</p>
               <p>{experience.company}</p>
-              <button
-                type="button"
-                onClick={() => {
-                  handleDeleteExperience(experience.id);
-                }}
-              >
-                X
+              <button type="button" onClick={() => {handleDeleteExperience(experience.id);}}>
+                <IoIosTrash />
               </button>
-              <button type="button" onClick={()=>{setValuesInForm(experience.id)}}>Edit</button>
+              <button type="button" onClick={()=>{setValuesInForm(experience.id)}}><IoMdCreate /></button>
             </div>
           ))}
         </div>
