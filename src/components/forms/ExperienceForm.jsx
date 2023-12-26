@@ -40,7 +40,7 @@ const ExperienceForm = () => {
   }
 
   const setValuesInForm = (id) =>{
-    experiences.find(id);
+    experiences.find((experience)=> experience.id === id);
   }
 
   const handleEditExperience = (id) =>{

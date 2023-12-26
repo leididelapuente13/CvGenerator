@@ -14,7 +14,7 @@ export const SkillForm = () => {
   };
 
   const handleDeleteSkill = (id) => {
-    console.log(id);
+  
   };
 
   const handleEditSkill = (id) => {

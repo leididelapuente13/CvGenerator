@@ -16,6 +16,20 @@ export const LanguageForm = () => {
     setLanguage({ ...language, name: "" });
   };
 
+  const handleDeleteLanguage = (id)=>{
+    console.log(id);
+    const toRemove = languages.find((language)=>language.id === id);
+    setLanguages(languages.filter((language)=>language != toRemove));
+  }
+
+  const displayLanguage = (id)=>{
+    console.log(id);
+  }
+
+  const handleEditLanguage = (id)=>{
+    console.log(id);
+  }
+
   return (
     <form onSubmit={handleAddLanguage}>
       <h3>Language</h3>
@@ -43,7 +57,7 @@ export const LanguageForm = () => {
           className="btn-submit"
           onChange={handleOnChange}
         />
-        <button type="button" className="btn-edit">
+        <button type="button" className="btn-edit" onClick={()=>handleEditLanguage(language.id)}>
           Edit
         </button>
       </div>
@@ -51,8 +65,8 @@ export const LanguageForm = () => {
       {languages.map((language)=>(
         <div key={language.id}>
           <p>{language.name + " " + language.fluency}</p>
-          <button type="button">X</button>
-          <button type="button">Edit</button>
+          <button type="button" onClick={()=>handleDeleteLanguage(language.id)}>X</button>
+          <button type="button" onClick={()=>displayLanguage(language.id)}>Edit</button>
         </div>
       ))}
     </form>
