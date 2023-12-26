@@ -35,7 +35,12 @@ const ExperienceForm = () => {
   };
 
   const handleDeleteExperience = (id) =>{
-    console.log(id);
+    const toRemove = experiences.find((experience) => experience.id === id);
+    setExperiences(experiences.filter((experience) => experience != toRemove));
+  }
+
+  const setValuesInForm = (id) =>{
+    experiences.find(id);
   }
 
   const handleEditExperience = (id) =>{
@@ -107,7 +112,7 @@ const ExperienceForm = () => {
         ></textarea>
         <div className="buttons-wrapper">
           <input type="submit" value="Save" className="btn-submit" />
-          <button type="button" className="btn-edit">
+          <button type="button" className="btn-edit" onClick={()=>handleEditExperience(experience.id)}>
             Edit
           </button>
         </div>
@@ -125,7 +130,7 @@ const ExperienceForm = () => {
               >
                 X
               </button>
-              <button type="button" onClick={()=>{handleEditExperience(experience.id)}}>Edit</button>
+              <button type="button" onClick={()=>{setValuesInForm(experience.id)}}>Edit</button>
             </div>
           ))}
         </div>
