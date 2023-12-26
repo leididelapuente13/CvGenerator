@@ -14,7 +14,8 @@ export const SkillForm = () => {
   };
 
   const handleDeleteSkill = (id) => {
-  
+    const toRemove = skills.find((skill)=>skill.id === id);
+    setSkills(skills.filter((skill)=>skill != toRemove));
   };
 
   const handleEditSkill = (id) => {
