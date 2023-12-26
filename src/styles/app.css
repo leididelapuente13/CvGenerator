@@ -127,7 +127,7 @@ header{
     background-color: rgb(94, 2, 94);
     color: #fff;
     width: 100%;
-    padding: 0.7rem;
+    padding: 0.8rem;
     text-align: center;
 }
 
@@ -184,3 +184,30 @@ section{
 .div-config p{
     font-weight: 600;
 }
+
+.more-button{
+    background-color: #c092c0;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.card{
+    margin-bottom: 0.7rem;
+    line-height: 1.2;
+}
+
+.bold-text{
+    font-weight: 600;
+}
+
+.italic-text{
+    font-style: italic;
+    margin-bottom: 0.2rem;
+}
+
+.light-text{
+    color: gray;
+    font-style: italic;
+}
+

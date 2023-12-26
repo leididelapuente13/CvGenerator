@@ -2,8 +2,8 @@ import {PropTypes} from 'prop-types'
 
 export const SkillCard = ({skill}) => {
   return (
-    <div>
-        <p>{skill.skill}</p>
+    <div className='card'>
+        <p className='bold-text'>{skill.skill}</p>
     </div>
   )
 }

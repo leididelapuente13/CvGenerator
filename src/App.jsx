@@ -18,7 +18,7 @@ function App() {
           <PersonalInfoForm />
           <EducationForm />
           <ExperienceForm />
-          <button
+          <button className="more-button"
             type="button"
             onClick={() => {
               visible ? setVisible(false) : setVisible(true);

@@ -3,11 +3,11 @@ import { PropTypes } from "prop-types";
 
 export const ExperienceCard = ({ experience }) => {
   return (
-    <div>
-      <p>{experience.company}</p>
-      <p>{experience.position}</p>
-      <p>{moment(experience.startDate, "YYYY-MM-DD").format("DD-MMMM-YYYY")}</p>
-      <p>
+    <div className="card">
+      <p className="bold-text">{experience.company}</p>
+      <p className="italic-text">{experience.position}</p>
+      <p className="light-text">{moment(experience.startDate, "YYYY-MM-DD").format("DD-MMMM-YYYY")}</p>
+      <p className="light-text">
         {experience.endDate == ""
           ? "On going"
           : moment(experience.endDate, "YYYY-MM-DD").format("DD-MMMM-YYYY")}

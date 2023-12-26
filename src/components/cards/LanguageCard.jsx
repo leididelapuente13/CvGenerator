@@ -3,7 +3,7 @@ import {PropTypes} from 'prop-types'
 export const LanguageCard = ({language}) => {
   return (
     <div>
-        <p>{language.name + " " + language.fluency}</p>
+        <p className='bold-text'>{language.name + " " + language.fluency}</p>
     </div>
   )
 }

@@ -3,11 +3,11 @@ import moment from "moment";
 
 export const EducationCard = ({education}) => {
   return (
-    <div>
-        <p>{education.school}</p>
-        <p>{education.degree}</p>
-        <p>{moment(education.startDate, "YYYY-MM-DD").format("DD-MMMM-YYYY")}</p>
-        <p>{education.endDate == "" ? "On going" : moment(education.endDate, "YYYY-MM-DD").format("DD-MMMM-YYYY")}</p>
+    <div className='card'>
+        <p className='bold-text'>{education.school}</p>
+        <p className='italic-text'>{education.degree}</p>
+        <p className='light-text'>{moment(education.startDate, "YYYY-MM-DD").format("DD-MMMM-YYYY")}</p>
+        <p className='light-text'>{education.endDate == "" ? "On going" : moment(education.endDate, "YYYY-MM-DD").format("DD-MMMM-YYYY")}</p>
         <p>{education.location}</p>
     </div>
   )
