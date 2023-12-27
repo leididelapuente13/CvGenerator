@@ -19,6 +19,11 @@ export const SkillForm = () => {
     setSkills(skills.filter((skill)=>skill != toRemove));
   };
 
+  const setSkillInForm = (id) =>{
+    const toDisplay = skills.find((skill)=>skill.id === id);
+    setNewSkill({...newSkill, skill: toDisplay.skill});
+  }
+
   const handleEditSkill = (id) => {
     console.log(id);
   };
@@ -38,7 +43,7 @@ export const SkillForm = () => {
       />
       <div className="buttons-wrapper">
         <input type="submit" value="Add" className="btn-submit"/>
-        <button type="button" className="btn-edit">
+        <button type="button" className="btn-edit" onClick={()=>handleEditSkill(newSkill.id)}>
           Edit
         </button>
       </div>
@@ -47,7 +52,7 @@ export const SkillForm = () => {
           <div key={skill.id} className="div-config">
             <p>{skill.skill}</p>
             <button type="button" onClick={()=>handleDeleteSkill(skill.id)}><IoIosTrash /></button>
-            <button type="button" onClick={()=>handleEditSkill(skill.id)}><IoMdCreate /></button>
+            <button type="button" onClick={()=>setSkillInForm(skill.id)}><IoMdCreate /></button>
           </div>
         ))}
       </div>

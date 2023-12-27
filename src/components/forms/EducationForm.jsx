@@ -42,6 +42,11 @@ const EducationForm = () => {
     console.log(id);
   };
 
+  const setEducationInForm = (id) =>{
+    const toDisplay = educations.find((education)=>education.id === id);
+    setEducation({...education, school: toDisplay.school, degree: toDisplay.degree, startDate: toDisplay.startDate, endDate: toDisplay.endDate, location: toDisplay.location});
+  }
+
   return (
     <div>
       <form onSubmit={handleAddEducation}>
@@ -98,7 +103,7 @@ const EducationForm = () => {
 
         <div className="buttons-wrapper">
           <input type="submit" value="Save" className="btn-submit" />
-          <button type="button" className="btn-edit">
+          <button type="button" className="btn-edit" onClick={()=>handleEditEducation(education.id)}>
             Edit
           </button>
         </div>
@@ -116,7 +121,7 @@ const EducationForm = () => {
               <button
                 type="button"
                 onClick={() => {
-                  handleEditEducation(education.id);
+                  setEducationInForm(education.id);
                 }}
               >
                 <IoMdCreate />

@@ -40,8 +40,9 @@ const ExperienceForm = () => {
     setExperiences(experiences.filter((experience) => experience != toRemove));
   }
 
-  const setValuesInForm = (id) =>{
-    experiences.find((experience)=> experience.id === id);
+  const setExperienceInForm = (id) =>{
+    const toDisplay = experiences.find((experience)=> experience.id === id);
+    setExperience({...experience, company: toDisplay.company, position: toDisplay.position, startDate: toDisplay.startDate, endDate: toDisplay.endDate, location: toDisplay.location, description: toDisplay.description});
   }
 
   const handleEditExperience = (id) =>{
@@ -126,7 +127,7 @@ const ExperienceForm = () => {
               <button type="button" onClick={() => {handleDeleteExperience(experience.id);}}>
                 <IoIosTrash />
               </button>
-              <button type="button" onClick={()=>{setValuesInForm(experience.id)}}><IoMdCreate /></button>
+              <button type="button" onClick={()=>{setExperienceInForm(experience.id)}}><IoMdCreate /></button>
             </div>
           ))}
         </div>

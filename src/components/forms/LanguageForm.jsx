@@ -23,8 +23,9 @@ export const LanguageForm = () => {
     setLanguages(languages.filter((language)=>language != toRemove));
   }
 
-  const displayLanguage = (id)=>{
-    console.log(id);
+  const setLanguageInForm = (id)=>{
+    const toDisplay = languages.find((language)=>language.id === id);
+    setLanguage({...language, name: toDisplay.name, fluency: toDisplay.fluency});
   }
 
   const handleEditLanguage = (id)=>{
@@ -67,7 +68,7 @@ export const LanguageForm = () => {
         <div key={language.id} className="div-config">
           <p>{language.name + " " + language.fluency}</p>
           <button type="button" onClick={()=>handleDeleteLanguage(language.id)}><IoIosTrash /></button>
-          <button type="button" onClick={()=>displayLanguage(language.id)}><IoMdCreate /></button>
+          <button type="button" onClick={()=>setLanguageInForm(language.id)}><IoMdCreate /></button>
         </div>
       ))}
     </form>
