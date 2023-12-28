@@ -166,7 +166,7 @@ section{
 
 .div-config{
     margin-top: 1rem;
-    width: 350px;
+    width: 100%;
     padding: 0.7rem;
     min-height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
