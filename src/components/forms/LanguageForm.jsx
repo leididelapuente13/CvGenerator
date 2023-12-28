@@ -25,11 +25,18 @@ export const LanguageForm = () => {
 
   const setLanguageInForm = (id)=>{
     const toDisplay = languages.find((language)=>language.id === id);
-    setLanguage({...language, name: toDisplay.name, fluency: toDisplay.fluency});
+    setLanguage({...language, id: toDisplay.id, name: toDisplay.name, fluency: toDisplay.fluency});
   }
 
   const handleEditLanguage = (id)=>{
-    console.log(id);
+    const updatedLanguage= {
+      name: language.name, 
+      fluency: language.fluency, 
+    }
+
+    setLanguages((languages)=>languages.map((language)=>language.id === id ? {...language, ...updatedLanguage} : language));
+
+    setLanguage({ ...language, name: "" });
   }
 
   return (
