@@ -42,11 +42,32 @@ const ExperienceForm = () => {
 
   const setExperienceInForm = (id) =>{
     const toDisplay = experiences.find((experience)=> experience.id === id);
-    setExperience({...experience, company: toDisplay.company, position: toDisplay.position, startDate: toDisplay.startDate, endDate: toDisplay.endDate, location: toDisplay.location, description: toDisplay.description});
+    setExperience({...experience, id: toDisplay.id, company: toDisplay.company, position: toDisplay.position, startDate: toDisplay.startDate, endDate: toDisplay.endDate, location: toDisplay.location, description: toDisplay.description});
   }
 
   const handleEditExperience = (id) =>{
-    console.log(id);
+    
+    const updatedExperience= {
+      company: experience.company, 
+      position: experience.position, 
+      startDate: experience.startDate, 
+      endDate: experience.endDate, 
+      location: experience.location,
+      description: experience.description,
+    }
+
+    setExperiences((experiences)=>experiences.map((experience)=>experience.id === id ? {...experience, ...updatedExperience} : experience));
+
+    setExperience({
+      id: "",
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+    });
+
   }
 
   return (
@@ -114,7 +135,7 @@ const ExperienceForm = () => {
         ></textarea>
         <div className="buttons-wrapper">
           <input type="submit" value="Save" className="btn-submit" />
-          <button type="button" className="btn-edit" onClick={()=>handleEditExperience(experience.id)}>
+          <button type="button" className="btn-edit" onClick={()=>{handleEditExperience(experience.id)}}>
             Edit
           </button>
         </div>
