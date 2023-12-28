@@ -21,11 +21,19 @@ export const SkillForm = () => {
 
   const setSkillInForm = (id) =>{
     const toDisplay = skills.find((skill)=>skill.id === id);
-    setNewSkill({...newSkill, skill: toDisplay.skill});
+    setNewSkill({...newSkill, id: toDisplay.id, skill: toDisplay.skill});
   }
 
   const handleEditSkill = (id) => {
-    console.log(id);
+    const updatedSkill = {
+      skill: newSkill.skill
+    }
+
+    setSkills((skills)=>skills.map((skill)=>skill.id === id ? {...skill, ...updatedSkill} : skill));
+
+    setNewSkill({
+      skill: ""
+    })
   };
 
   return (
