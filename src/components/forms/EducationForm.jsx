@@ -38,14 +38,39 @@ const EducationForm = () => {
     setEducations(educations.filter((education) => education != toRemove));
   };
 
-  const handleEditEducation = (id) => {
-    console.log(id);
+  const setEducationInForm = (id) => {
+    const toDisplay = educations.find((education) => education.id === id);
+    setEducation({
+      ...education,
+      id: toDisplay.id,
+      school: toDisplay.school,
+      degree: toDisplay.degree,
+      startDate: toDisplay.startDate,
+      endDate: toDisplay.endDate,
+      location: toDisplay.location,
+    });
+
   };
 
-  const setEducationInForm = (id) =>{
-    const toDisplay = educations.find((education)=>education.id === id);
-    setEducation({...education, school: toDisplay.school, degree: toDisplay.degree, startDate: toDisplay.startDate, endDate: toDisplay.endDate, location: toDisplay.location});
-  }
+  const handleEditEducation = (id) => {
+    const updatedEducation = {
+      school: education.school, 
+      degree: education.degree, 
+      startDate: education.startDate, 
+      endDate: education.endDate, 
+      location: education.location,
+    }
+
+    setEducations((educations) => educations.map((education)=>education.id === id ? {...education, ...updatedEducation} : education));
+    
+    setEducation({
+      school: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+    });
+  };
 
   return (
     <div>
@@ -103,7 +128,11 @@ const EducationForm = () => {
 
         <div className="buttons-wrapper">
           <input type="submit" value="Save" className="btn-submit" />
-          <button type="button" className="btn-edit" onClick={()=>handleEditEducation(education.id)}>
+          <button
+            type="button"
+            className="btn-edit"
+            onClick={() => {handleEditEducation(education.id)}}
+          >
             Edit
           </button>
         </div>
@@ -112,7 +141,9 @@ const EducationForm = () => {
           {educations.map((education) => (
             <div key={education.id}>
               <p>{education.school + " - " + education.degree}</p>
-              <button type="button" onClick={() => {
+              <button
+                type="button"
+                onClick={() => {
                   handleDeleteEducation(education.id);
                 }}
               >
